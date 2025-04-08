@@ -2,7 +2,7 @@
 
 import { useCart } from "@/context/CartContext";
 import Image from "next/image";
-import Trash from "@/public/svg/Trash.svg";
+import Trash from "@/public/svg/trash.svg"
 
 const Cart = () => {
   const { cartItems, removeFromCart, clearCart, calculateTotal } = useCart();
