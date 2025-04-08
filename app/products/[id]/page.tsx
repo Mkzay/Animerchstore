@@ -18,7 +18,9 @@ export default function ProductDetailsPage({
 
   const { addToCart } = useCart();
   const [quantity, setQuantity] = useState(1);
-  const [selectedImage, setSelectedImage] = useState(product?.images[0]);
+  const [selectedImage, setSelectedImage] = useState<string>(
+    product?.images[0] ?? ""
+  );
 
   if (!product) {
     return <p className="text-center mt-10 text-red-500">Product not found</p>;
