@@ -1,3 +1,5 @@
+// app/searchResults/page.tsx
+
 "use client";
 
 import { useSearchParams, useRouter } from "next/navigation";
@@ -90,7 +92,7 @@ export default function SearchResults() {
   );
 }
 
-// Wrap the component with Suspense at the page level
+// Wrap your component in Suspense for asynchronous rendering
 export function SuspenseWrapper() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
