@@ -18,7 +18,7 @@ const CartItem = ({ id, name, image, price, description, quantity, onRemove }: C
         <Image src={image} alt={name} fill className="object-cover rounded" />
       </div>
       <div>
-        <h3 className="font-semibold">{name}</h3>
+        <h3 className="font-semibold text-black">{name}</h3>
         <p className="text-sm text-gray-600">{description}</p>
         <p className="text-gray-600">
           ${price.toFixed(2)} x {quantity}

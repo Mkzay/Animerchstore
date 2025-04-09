@@ -3,7 +3,11 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function SearchBar({ closeSearch }: { closeSearch?: () => void }) {
+export default function SearchBar({
+  closeSearch,
+}: {
+  closeSearch?: () => void;
+}) {
   const [searchQuery, setSearchQuery] = useState("");
   const router = useRouter();
 
@@ -29,7 +33,7 @@ export default function SearchBar({ closeSearch }: { closeSearch?: () => void })
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           placeholder="Search for products..."
-          className="flex-1 px-4 py-2 border rounded outline-none focus:ring-2 focus:ring-blue-400"
+          className="flex-1 px-4 py-2 border-black border-solid border-[1px] rounded outline-none focus:ring-2 focus:ring-blue-400 placeholder:text-gray-700 text-black"
         />
         <button
           type="submit"

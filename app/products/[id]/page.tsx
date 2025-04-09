@@ -48,7 +48,9 @@ function ProductDetailsPage({ params }: { params: ParamsPromise }) {
 
         {/* Product Info */}
         <div>
-          <h1 className="text-3xl font-bold mb-2">{product.title}</h1>
+          <h1 className="text-3xl font-bold mb-2 text-black">
+            {product.title}
+          </h1>
           <p className="text-gray-600 mb-4 text-xl font-semibold">
             ${product.price.toFixed(2)}
           </p>
@@ -91,7 +93,13 @@ function ProductDetailsPage({ params }: { params: ParamsPromise }) {
 
 export default function PageWrapper({ params }: { params: ParamsPromise }) {
   return (
-    <ErrorBoundary fallback={<p className="text-red-500">Something went wrong. Please try again later.</p>}>
+    <ErrorBoundary
+      fallback={
+        <p className="text-red-500">
+          Something went wrong. Please try again later.
+        </p>
+      }
+    >
       <ProductDetailsPage params={params} />
     </ErrorBoundary>
   );
