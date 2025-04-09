@@ -18,11 +18,9 @@ export default function Filter({
   const safePriceRange: [number, number] = priceRange ?? [0, 100];
 
   const handlePriceChange = (value: number, index: 0 | 1) => {
-    onPriceRangeChange((prev) => {
-      const updated: [number, number] = [...prev] as [number, number];
-      updated[index] = value;
-      return updated;
-    });
+    const updated: [number, number] = [...safePriceRange];
+    updated[index] = value;
+    onPriceRangeChange(updated);
   };
 
   return (
