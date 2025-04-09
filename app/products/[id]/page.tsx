@@ -3,19 +3,16 @@
 import { use, useState } from "react";
 import { products } from "@/data/products";
 import { useCart } from "@/context/CartContext";
-import MainImage from "@/components/MainImage";
-import ThumbnailGallery from "@/components/ThumbnailGallery";
-import QuantitySelector from "@/components/QuantitySelector";
-import CustomerReviews from "@/components/CustomerReviews";
-import Specifications from "@/components/Specifications";
+import MainImage from "@/components/Products/MainImage";
+import ThumbnailGallery from "@/components/Products/ThumbnailGallery";
+import QuantitySelector from "@/components/Products/QuantitySelector";
+import CustomerReviews from "@/components/Products/CustomerReviews";
+import Specifications from "@/components/Products/Specifications";
+import ErrorBoundary from "@/components/Common/ErrorBoundary";
 
 type ParamsPromise = Promise<{ id: string }>;
 
-export default function ProductDetailsPage({
-  params,
-}: {
-  params: ParamsPromise;
-}) {
+function ProductDetailsPage({ params }: { params: ParamsPromise }) {
   const { id } = use(params);
   const product = products.find((p) => p.id === id);
 
@@ -60,7 +57,7 @@ export default function ProductDetailsPage({
           </p>
 
           {/* Specifications */}
-      <Specifications specs={product.specs} />
+          <Specifications specs={product.specs} />
 
           <QuantitySelector
             quantity={quantity}
@@ -89,5 +86,13 @@ export default function ProductDetailsPage({
       {/* Reviews */}
       <CustomerReviews reviews={product.reviews} />
     </div>
+  );
+}
+
+export default function PageWrapper({ params }: { params: ParamsPromise }) {
+  return (
+    <ErrorBoundary fallback={<p className="text-red-500">Something went wrong. Please try again later.</p>}>
+      <ProductDetailsPage params={params} />
+    </ErrorBoundary>
   );
 }

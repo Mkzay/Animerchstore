@@ -74,10 +74,6 @@ Animerch is an anime merchandise e-commerce platform built with modern web techn
 
 ### 🚀 Potential Improvements
 
-- 🔐 **Implement real authentication**:
-  - Use JWT, OAuth, or Firebase Auth to handle secure user authentication and session management.
-  - Add features like user registration, login, and role-based access control.
-
 - 🔄 **Replace JSON with a proper backend and database**:
   - Use a backend framework like Node.js or Django and a database like MongoDB, PostgreSQL, or Supabase.
   - This will allow for dynamic content updates, scalability, and real-time interactions.
@@ -98,7 +94,6 @@ Animerch is an anime merchandise e-commerce platform built with modern web techn
 
 - 🧪 **Add testing**:
   - Write unit tests for components and integration tests for critical flows (e.g., adding to cart, checkout).
-  - Use tools like Jest and React Testing Library.
 
 - 📱 **Enhance responsive design**:
   - Ensure the app is fully optimized for mobile devices with better responsive layouts and touch-friendly interactions.
@@ -118,16 +113,12 @@ Animerch is an anime merchandise e-commerce platform built with modern web techn
   - Implement structured data (e.g., JSON-LD) for products, reviews, and breadcrumbs to improve search engine visibility.
   - Generate a sitemap and `robots.txt` file using tools like `next-sitemap` to improve crawlability.
 
-- 🛠️ **Component structure and reusability**:
-  - Create a shared components library for commonly used UI elements like buttons, modals, and loaders.
 
 - ⚡ **Performance optimizations**:
-  - Use memoization (`React.memo`, `useMemo`, `useCallback`) to prevent unnecessary re-renders of components.
+  - Use memoization (`React.memo`, `useCallback`) to prevent unnecessary re-renders of some components.
 
 - 🛑 **Error boundaries**:
-  - Implement error boundaries to catch and display errors in critical parts of the app (e.g., product details, search results).
-  - Create a reusable `ErrorBoundary` component to wrap around components prone to errors.
+  - Implement error boundaries to catch and display errors in critical parts of the app.
 
 - ❌ **Proper error handling**:
-  - Handle API errors gracefully by showing appropriate error messages (e.g., "Failed to load products").
-  - Add fallback UI for cases where data cannot be fetched or rendered (e.g., "No products found").
+  - Add fallback UI for specific cases where data cannot be fetched or rendered (e.g., "No products found").

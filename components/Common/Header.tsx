@@ -8,7 +8,7 @@ import AnimerchLogo from "@/public/svg/AnimerchLogo.svg";
 import Cart from "@/public/svg/Cart.svg";
 import Search from "@/public/svg/Search.svg";
 import { useCart } from "@/context/CartContext";
-import SearchBar from "@/components/SearchBar";
+import SearchBar from "@/components/Search/SearchBar";
 
 export default function Header() {
   const pathname = usePathname();

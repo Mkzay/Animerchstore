@@ -1,7 +1,7 @@
 "use client";
 
 import { useCart } from "@/context/CartContext";
-import CartItem from "@/components/CartItem";
+import CartItem from "@/components/Cart/CartItem";
 import EmptyCartIcon from "@/public/svg/empty-cart.svg";
 import Image from "next/image";
 
