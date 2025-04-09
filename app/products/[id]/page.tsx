@@ -1,9 +1,12 @@
 "use client";
 
-import { useState, use } from "react";
+import { use, useState } from "react";
 import Image from "next/image";
 import { products } from "@/data/products";
 import { useCart } from "@/context/CartContext";
+import MainImage from "@/components/MainImage";
+import ThumbnailGallery from "@/components/ThumbnailGallery";
+import QuantitySelector from "@/components/QuantitySelector";
 import CustomerReviews from "@/components/CustomerReviews";
 
 type ParamsPromise = Promise<{ id: string }>;
@@ -23,74 +26,47 @@ export default function ProductDetailsPage({
   );
 
   if (!product) {
-    return <p className="text-center mt-10 text-red-500">Product not found</p>;
+    return (
+      <p className="text-center mt-10 text-red-500 text-lg font-medium">
+        Product not found
+      </p>
+    );
   }
 
-  const handleIncrement = () => setQuantity((prev) => prev + 1);
-  const handleDecrement = () =>
-    setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+  const handleIncrement = () => setQuantity((q) => q + 1);
+  const handleDecrement = () => setQuantity((q) => (q > 1 ? q - 1 : 1));
 
   return (
     <div className="max-w-6xl mx-auto p-6">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
         {/* Image Gallery */}
         <div>
-          <div className="relative w-full h-96 rounded-lg overflow-hidden border">
-            <Image
-              src={selectedImage}
-              alt={product.title}
-              fill
-              className="object-cover"
-            />
-          </div>
-          <div className="flex gap-2 mt-4">
-            {product.images.map((img, idx) => (
-              <div
-                key={idx}
-                onClick={() => setSelectedImage(img)}
-                className={`w-20 h-20 relative border rounded-md overflow-hidden cursor-pointer ${
-                  selectedImage === img ? "ring-2 ring-blue-600" : ""
-                }`}
-              >
-                <Image
-                  src={img}
-                  alt={`thumb-${idx}`}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            ))}
-          </div>
+          <MainImage src={selectedImage} alt={product.title} />
+          <ThumbnailGallery
+            images={product.images}
+            selectedImage={selectedImage}
+            onSelect={setSelectedImage}
+          />
         </div>
 
         {/* Product Info */}
         <div>
           <h1 className="text-3xl font-bold mb-2">{product.title}</h1>
-          <p className="text-gray-600 mb-4">${product.price.toFixed(2)}</p>
-          <p className="text-gray-800 mb-6">{product.description}</p>
+          <p className="text-gray-600 mb-4 text-xl font-semibold">
+            ${product.price.toFixed(2)}
+          </p>
+          <p className="text-gray-800 mb-6 leading-relaxed">
+            {product.description}
+          </p>
 
-          {/* Specifications */}
-
-          {/* Quantity Control */}
-          <div className="flex items-center gap-4 mb-6">
-            <span className="text-sm font-medium">Quantity:</span>
-            <button
-              onClick={handleDecrement}
-              className="px-3 py-1 border rounded hover:bg-gray-200"
-            >
-              -
-            </button>
-            <span>{quantity}</span>
-            <button
-              onClick={handleIncrement}
-              className="px-3 py-1 border rounded hover:bg-gray-200"
-            >
-              +
-            </button>
-          </div>
+          <QuantitySelector
+            quantity={quantity}
+            onIncrement={handleIncrement}
+            onDecrement={handleDecrement}
+          />
 
           <button
-            className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
+            className="mt-4 bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition"
             onClick={() =>
               addToCart({
                 id: product.id,
@@ -107,7 +83,7 @@ export default function ProductDetailsPage({
         </div>
       </div>
 
-      {/* Customer Reviews */}
+      {/* Reviews */}
       <CustomerReviews productId={product.id} />
     </div>
   );

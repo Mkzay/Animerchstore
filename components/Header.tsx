@@ -8,6 +8,7 @@ import AnimerchLogo from "@/public/svg/AnimerchLogo.svg";
 import Cart from "@/public/svg/Cart.svg";
 import Search from "@/public/svg/Search.svg";
 import { useCart } from "@/context/CartContext";
+import SearchBar from "@/components/SearchBar";
 
 export default function Header() {
   const pathname = usePathname();
@@ -66,28 +67,7 @@ export default function Header() {
       </div>
 
       {/* Search Input */}
-      {searchOpen && (
-        <div className="bg-gray-100 p-4">
-          <form
-            onSubmit={handleSearchSubmit}
-            className="flex items-center space-x-4"
-          >
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search for products..."
-              className="flex-1 px-4 py-2 border rounded"
-            />
-            <button
-              type="submit"
-              className="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
-            >
-              Search
-            </button>
-          </form>
-        </div>
-      )}
+      {searchOpen && <SearchBar closeSearch={() => setSearchOpen(false)} />}
     </header>
   );
 }
