@@ -15,7 +15,7 @@ export default function Filter({
   onCategoryChange,
   onPriceRangeChange,
 }: Props) {
-  const safePriceRange: [number, number] = priceRange ?? [0, 100];
+  const safePriceRange: [number, number] = priceRange ?? [0, 1000];
 
   const handlePriceChange = (value: number, index: 0 | 1) => {
     const updated: [number, number] = [...safePriceRange];

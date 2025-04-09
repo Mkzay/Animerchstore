@@ -1,13 +1,13 @@
 "use client";
 
 import { use, useState } from "react";
-import Image from "next/image";
 import { products } from "@/data/products";
 import { useCart } from "@/context/CartContext";
 import MainImage from "@/components/MainImage";
 import ThumbnailGallery from "@/components/ThumbnailGallery";
 import QuantitySelector from "@/components/QuantitySelector";
 import CustomerReviews from "@/components/CustomerReviews";
+import Specifications from "@/components/Specifications";
 
 type ParamsPromise = Promise<{ id: string }>;
 
@@ -59,6 +59,9 @@ export default function ProductDetailsPage({
             {product.description}
           </p>
 
+          {/* Specifications */}
+      <Specifications specs={product.specs} />
+
           <QuantitySelector
             quantity={quantity}
             onIncrement={handleIncrement}
@@ -84,19 +87,7 @@ export default function ProductDetailsPage({
       </div>
 
       {/* Reviews */}
-      <CustomerReviews productId={product.id} />
+      <CustomerReviews reviews={product.reviews} />
     </div>
   );
 }
-
-/*
-          Specifications
-          <div className="mb-6">
-            <h2 className="text-xl font-semibold mb-2">Specifications</h2>
-            <ul className="list-disc pl-6 text-gray-700">
-              {product.specifications?.map((spec, idx) => (
-                <li key={idx}>{spec}</li>
-              ))}
-            </ul>
-          </div>
-*/
