@@ -11,15 +11,33 @@ Make sure you have the following installed on your system:
 - [Node.js](https://nodejs.org/) (version 16 or higher recommended)
 - [npm](https://www.npmjs.com/) (comes with Node.js) or [yarn](https://yarnpkg.com/)
 
-### Installation
+### Option 1: Clone the repository:
 
-1. Clone the repository:
+```bash
+git clone https://github.com/your-username/animerchstore.git
+cd animerchstore
 
-   ```bash
-   git clone https://github.com/your-username/animerchstore.git
-   cd animerchstore
+```
 
-   ```
+1. npm install
+
+# or
+
+yarn install
+
+### Start the development server
+
+2. npm run dev
+
+# or
+
+yarn dev
+
+Open http://localhost:3000 with your browser to see the result.
+
+### Option 2: Setup via ZIP File:
+
+1. Extract the ZIP file into a directory of your choice.
 
 2. npm install
 
@@ -29,16 +47,13 @@ yarn install
 
 ### Start the development server
 
-1. npm run dev
+3. npm run dev
 
 # or
 
 yarn dev
 
 Open http://localhost:3000 with your browser to see the result.
-
-
-
 
 ## 🧱 Technical Documentation
 
@@ -57,14 +72,14 @@ Animerch is an anime merchandise e-commerce platform built with modern web techn
 
 ### ⚖️ Trade-offs Made
 
-| Decision | Trade-off |
-|---------|-----------|
-| Used **Context API** over Redux or Zustand | Simpler setup but less scalable for large state logic |
-| **Static JSON data** instead of a database | Simple and fast to set up, but limits scalability and dynamic updates. Most data is static, so real-time updates or dynamic content are not supported. |
-| **SNext.js App Router (Server Components)** instead of Page Router | Provides better performance and SEO benefits, but requires adapting to new patterns and may have a learning curve. |
-| No real authentication logic | Fast prototyping, but lacks real security/session handling |
-| Static image hosting | Simple and fast, but not suitable for user uploads |
-| No server-side business logic | Lightweight, but lacks real-time interaction or admin tools |
+| Decision                                                           | Trade-off                                                                                                                                              |
+| ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Used **Context API** over Redux or Zustand                         | Simpler setup but less scalable for large state logic                                                                                                  |
+| **Static JSON data** instead of a database                         | Simple and fast to set up, but limits scalability and dynamic updates. Most data is static, so real-time updates or dynamic content are not supported. |
+| **SNext.js App Router (Server Components)** instead of Page Router | Provides better performance and SEO benefits, but requires adapting to new patterns and may have a learning curve.                                     |
+| No real authentication logic                                       | Fast prototyping, but lacks real security/session handling                                                                                             |
+| Static image hosting                                               | Simple and fast, but not suitable for user uploads                                                                                                     |
+| No server-side business logic                                      | Lightweight, but lacks real-time interaction or admin tools                                                                                            |
 
 ---
 
@@ -75,50 +90,62 @@ Animerch is an anime merchandise e-commerce platform built with modern web techn
 ### 🚀 Potential Improvements
 
 - 🔄 **Replace JSON with a proper backend and database**:
+
   - Use a backend framework like Node.js or Django and a database like MongoDB, PostgreSQL, or Supabase.
   - This will allow for dynamic content updates, scalability, and real-time interactions.
 
 - 📦 **Add server-side business logic**:
+
   - Implement server-side validation, admin tools, and APIs for managing products, orders, and users.
   - This will improve security and enable real-time features.
 
 - 🖼️ **Upgrade image hosting**:
+
   - Use a cloud-based image hosting service like Cloudinary or AWS S3 to support user-generated content and dynamic image uploads.
 
 - 📊 **Improve state management**:
+
   - Consider using Redux or Zustand for more scalable and maintainable state management, especially if the app grows in complexity.
 
 - 🚀 **Optimize performance**:
+
   - Use server-side rendering (SSR) or incremental static regeneration (ISR) for better performance and SEO.
   - Implement lazy loading for images and components to improve page load times.
 
 - 🧪 **Add testing**:
+
   - Write unit tests for components and integration tests for critical flows (e.g., adding to cart, checkout).
 
 - 📱 **Enhance responsive design**:
+
   - Ensure the app is fully optimized for mobile devices with better responsive layouts and touch-friendly interactions.
 
 - 🔍 **Improve search functionality**:
+
   - Add fuzzy search or autocomplete features to enhance the search experience.
 
 - 📈 **Analytics and monitoring**:
+
   - Integrate tools like Google Analytics or Sentry to monitor user behavior and track errors in production.
 
 - 🔄 **Proper handling of async data fetching**:
+
   - Use Server Components in the Next.js App Router to fetch data directly on the server for better performance and SEO.
   - Implement data fetching hooks like `useSWR` or `React Query` for client-side fetching, caching, and revalidation.
 
 - 🌐 **SEO optimization**:
+
   - Add dynamic metadata (e.g., title, description, Open Graph tags) for each page using the `next/head` component or the new `metadata` API in the App Router.
   - Implement structured data (e.g., JSON-LD) for products, reviews, and breadcrumbs to improve search engine visibility.
   - Generate a sitemap and `robots.txt` file using tools like `next-sitemap` to improve crawlability.
 
-
 - ⚡ **Performance optimizations**:
+
   - Use memoization (`React.memo`, `useCallback`) to prevent unnecessary re-renders of some components.
 
 - 🛑 **Error boundaries**:
+
   - Implement error boundaries to catch and display errors in critical parts of the app.
 
 - ❌ **Proper error handling**:
-  - Add fallback UI for specific cases where data cannot be fetched or rendered (e.g., "No products found").
+  - Add fallback UI for specific cases where data cannot be fetched or rendered.
