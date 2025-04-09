@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams, useRouter } from "next/navigation";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import { products } from "@/data/products";
 import Link from "next/link";
 import Image from "next/image";
@@ -87,5 +87,14 @@ export default function SearchResults() {
         <p className="text-gray-700">No products found.</p>
       )}
     </div>
+  );
+}
+
+// Wrap the component with Suspense at the page level
+export function SuspenseWrapper() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <SearchResults />
+    </Suspense>
   );
 }
