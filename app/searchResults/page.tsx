@@ -91,12 +91,3 @@ export default function SearchResults() {
     </div>
   );
 }
-
-// Wrap the SearchResults component with Suspense directly here
-export function SuspenseBoundary() {
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <SearchResults />
-    </Suspense>
-  );
-}
