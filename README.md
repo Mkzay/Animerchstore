@@ -37,9 +37,8 @@ yarn dev
 
 Open http://localhost:3000 with your browser to see the result.
 
-## 🧱 Technical Documentation
 
-### 📌 Architectural Decisions
+
 
 ## 🧱 Technical Documentation
 
