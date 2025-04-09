@@ -33,7 +33,7 @@ export default function ProductCard({ product }: { product: Product }) {
             />
           </div>
 
-          <h2 className="font-semibold px-2">{product.title}</h2>
+          <h2 className="font-semibold px-2 text-black">{product.title}</h2>
         </Link>
         <p className="text-gray-700 mt-1 px-2">${product.price.toFixed(2)}</p>
         <button
