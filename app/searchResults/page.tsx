@@ -92,8 +92,8 @@ export default function SearchResults() {
   );
 }
 
-// Wrap your component in Suspense for asynchronous rendering
-export function SuspenseWrapper() {
+// Wrap the SearchResults component with Suspense directly here
+export function SuspenseBoundary() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <SearchResults />
