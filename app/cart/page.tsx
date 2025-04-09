@@ -34,7 +34,7 @@ const Cart = () => {
       </ul>
 
       <div className="mt-6 flex justify-between items-center flex-wrap gap-4">
-        <h3 className="text-xl font-bold">
+        <h3 className="text-lg font-bold text-black">
           Total: ${calculateTotal().toFixed(2)}
         </h3>
         <button
